@@ -6,13 +6,12 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const handleWhatsAppContact = () => {
-    const message = "Olá! Gostaria de conversar sobre um projeto.";
-    const whatsappUrl = `https://wa.me/5551999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = "https://api.whatsapp.com/send?phone=555130823083&text=Ol%C3%A1%20Grupo%20Drop.%20Preciso%20de%20Informa%C3%A7%C3%B5es%20Sobre%20Seus%20Servi%C3%A7os.";
     window.open(whatsappUrl, '_blank');
   };
 
   const handleEmailContact = () => {
-    window.location.href = "mailto:contato@designer.com.br";
+    window.location.href = "mailto:ola@grupodrop.com.br";
   };
 
   return (
@@ -83,17 +82,9 @@ const Footer = () => {
                   variant="ghost"
                   size="icon"
                   className="hover:text-primary"
-                  onClick={() => window.open('https://instagram.com/designer', '_blank')}
+                  onClick={() => window.open('https://www.instagram.com/grupodrop_/', '_blank')}
                 >
                   <Instagram className="h-5 w-5" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="hover:text-primary"
-                  onClick={() => window.open('https://linkedin.com/in/designer', '_blank')}
-                >
-                  <Linkedin className="h-5 w-5" />
                 </Button>
                 <Button
                   variant="ghost"
@@ -134,11 +125,19 @@ const Footer = () => {
               <div className="space-y-2 text-muted-foreground">
                 <div className="flex items-center space-x-2">
                   <MessageCircle className="h-4 w-4" />
-                  <span>(51) 99999-9999</span>
+                  <span>Fixo e WhatsApp: (51) 3082-3083</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <MessageCircle className="h-4 w-4" />
+                  <span>WhatsApp: (51) 98623-8277</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <MessageCircle className="h-4 w-4" />
+                  <span>WhatsApp: (51) 98545-7871</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail className="h-4 w-4" />
-                  <span>contato@designer.com.br</span>
+                  <span>ola@grupodrop.com.br</span>
                 </div>
                 <div className="pt-2">
                   <p className="text-sm">
