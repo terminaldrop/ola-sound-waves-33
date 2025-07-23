@@ -39,10 +39,10 @@ const Hero = () => {
         <div className="space-y-4">
           <h1 className="text-5xl md:text-7xl font-bold font-sora leading-tight">
             <span className="text-white">Design que</span>
-            <span className="text-pink-500 block">
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent block">
               Transforma
             </span>
-            <span className="text-gray-400">Marcas</span>
+            <span className="text-gray-300">Marcas</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
