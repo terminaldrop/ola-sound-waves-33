@@ -1,7 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail, MessageCircle, Settings } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowRight, Mail, MessageCircle } from "lucide-react";
 
 const Hero = () => {
   const handleWhatsAppContact = () => {
@@ -73,17 +72,6 @@ const Hero = () => {
             <Mail className="mr-2 h-5 w-5" />
             Enviar E-mail
           </Button>
-
-          <Link to="/auth">
-            <Button 
-              variant="ghost" 
-              size="lg"
-              className="text-muted-foreground hover:text-primary px-6 py-6 text-lg rounded-full backdrop-blur-sm transition-all duration-300"
-            >
-              <Settings className="mr-2 h-5 w-5" />
-              Admin
-            </Button>
-          </Link>
         </div>
 
         {/* Stats */}
