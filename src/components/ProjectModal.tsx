@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -36,7 +37,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
 
   const handleWhatsAppContact = () => {
     const message = `Olá! Gostei do projeto "${project.title}" e gostaria de solicitar um orçamento similar.`;
-    const whatsappUrl = `https://wa.me/5551999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=555130823083&text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -161,15 +162,14 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                 {project.category === 'Automação com IA' && (
                   <>
                     <Button
-                      className="w-full bg-green-600 hover:bg-green-700"
-                      onClick={() => window.open('https://wa.me/5551999999999?text=Olá! Gostaria de testar a IA para Vendas', '_blank')}
+                      className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white border-0 shadow-lg"
+                      onClick={() => window.open('https://api.whatsapp.com/send?phone=555130823083&text=Olá! Gostaria de testar a IA para Vendas', '_blank')}
                     >
                       🤖 Testar IA para Vendas
                     </Button>
                     <Button
-                      variant="outline"
-                      className="w-full"
-                      onClick={() => window.open('https://wa.me/5551999999999?text=Olá! Gostaria de testar a IA para Atendimento', '_blank')}
+                      className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white border-0 shadow-lg"
+                      onClick={() => window.open('https://api.whatsapp.com/send?phone=555130823083&text=Olá! Gostaria de testar a IA para Atendimento', '_blank')}
                     >
                       📅 Testar IA para Atendimento
                     </Button>
@@ -179,7 +179,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                 {/* Link externo para websites */}
                 {project.link && (
                   <Button
-                    className="w-full bg-blue-600 hover:bg-blue-700"
+                    className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white border-0 shadow-lg"
                     onClick={() => window.open(project.link, '_blank')}
                   >
                     <ExternalLink className="mr-2 h-4 w-4" />
@@ -188,7 +188,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                 )}
                 
                 <Button
-                  className="w-full"
+                  className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white border-0 shadow-lg"
                   onClick={handleWhatsAppContact}
                 >
                   <MessageCircle className="mr-2 h-4 w-4" />
