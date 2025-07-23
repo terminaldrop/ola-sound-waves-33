@@ -90,7 +90,7 @@ const ProjectsGrid = () => {
                 className={`transition-all duration-300 rounded-full ${
                   selectedCategory === category 
                     ? "bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white hover:from-orange-600 hover:via-red-600 hover:to-pink-600 shadow-lg shadow-pink-500/25" 
-                    : "border-primary/30 text-primary hover:bg-primary/10 hover:border-primary/50"
+                    : "border-primary/30 text-primary hover:bg-[#4A1A5C]/80 hover:border-primary/50 bg-[#4A1A5C]/60 backdrop-blur-sm"
                 }`}
               >
                 {category}
