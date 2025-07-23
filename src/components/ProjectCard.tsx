@@ -17,12 +17,12 @@ const ProjectCard = ({ project, onView }: ProjectCardProps) => {
   return (
     <div className="masonry-item">
       <Card 
-        className="project-card group cursor-pointer bg-card/80 backdrop-blur-sm border-2 border-primary/30 hover:border-primary/60 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-primary/20"
+        className="project-card group cursor-pointer bg-card/80 backdrop-blur-sm border-2 border-primary/30 hover:border-primary/60 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-primary/20 h-full flex flex-col"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={() => onView(project)}
       >
-        <CardContent className="p-0">
+        <CardContent className="p-0 h-full flex flex-col">
           {/* Image container */}
           <div className="relative overflow-hidden">
             <div className={`aspect-[4/3] bg-muted transition-all duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
@@ -67,7 +67,7 @@ const ProjectCard = ({ project, onView }: ProjectCardProps) => {
           </div>
 
           {/* Content */}
-          <div className="p-6 space-y-4">
+          <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <Badge variant="secondary" className="text-xs font-medium bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white border-0 shadow-sm">

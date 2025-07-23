@@ -14,28 +14,12 @@ export interface Project {
 }
 
 export const portfolioProjects: Project[] = [
-  // Designer Gráfico
+  // Criação de identidade Visual
   {
-    id: 'design-grafico-diversos',
-    title: 'Design Gráfico - Materiais Impressos',
-    category: 'Designer Gráfico',
-    description: 'Peças gráficas variadas incluindo cartazes, flyers, banners e materiais impressos para diversos clientes.',
-    thumbnail: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&h=300&fit=crop',
-    images: [
-      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop',
-    ],
-    type: 'image',
-    date: '2024-01'
-  },
-
-  // Branding e Identidade Visual
-  {
-    id: 'branding-restaurante',
-    title: 'Branding Completo - Restaurante',
-    category: 'Branding e Identidade Visual',
-    description: 'Desenvolvimento completo de identidade visual, incluindo logo, paleta de cores, tipografia e manual da marca.',
+    id: 'identidade-visual-restaurante',
+    title: 'Identidade Visual Completa - Restaurante',
+    category: 'Criação de identidade Visual',
+    description: 'Desenvolvimento completo de identidade visual, incluindo logo, paleta de cores, tipografia e manual da marca para restaurante.',
     thumbnail: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&h=300&fit=crop',
     images: [
       'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop',
@@ -46,27 +30,40 @@ export const portfolioProjects: Project[] = [
     date: '2023-11'
   },
 
-  // Criação de Conteúdo para Redes Sociais
   {
-    id: 'posts-feed-pizzaria',
+    id: 'identidade-visual-tech',
+    title: 'Branding Tech Startup',
+    category: 'Criação de identidade Visual',
+    description: 'Criação de identidade visual moderna para startup de tecnologia, incluindo logo, cartão de visita e papelaria.',
+    thumbnail: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&h=300&fit=crop',
+    images: [
+      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=600&fit=crop',
+    ],
+    type: 'image',
+    date: '2024-01'
+  },
+
+  // Social Media
+  {
+    id: 'social-media-pizzaria',
     title: 'Posts Feed - Pizzaria & Lanches',
-    category: 'Criação de Conteúdo para Redes Sociais',
+    category: 'Social Media',
     description: 'Posts promocionais para feed do Instagram, incluindo promoções especiais, combos e produtos destaque.',
     thumbnail: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=500&h=300&fit=crop',
     images: [
       'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=800&h=800&fit=crop',
       'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=800&h=800&fit=crop',
       'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&h=800&fit=crop',
-      'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&h=800&fit=crop',
     ],
     type: 'image',
     date: '2023-12'
   },
   
   {
-    id: 'stories-reels',
+    id: 'social-media-stories',
     title: 'Stories & Reels Promocionais',
-    category: 'Criação de Conteúdo para Redes Sociais',
+    category: 'Social Media',
     description: 'Conteúdo vertical para stories e reels, com promoções dinâmicas e call-to-action para delivery.',
     thumbnail: 'https://images.unsplash.com/photo-1611177529882-39b6926feee6?w=300&h=500&fit=crop',
     images: [
@@ -77,27 +74,40 @@ export const portfolioProjects: Project[] = [
     date: '2023-12'
   },
 
-  // Criativos para Tráfego Pago
+  // Designer de Embalagem
   {
-    id: 'criativos-trafego',
-    title: 'Criativos para Tráfego Pago',
-    category: 'Criativos para Gestão de Tráfego Pago',
-    description: 'Peças gráficas otimizadas para campanhas pagas no Facebook e Instagram, com foco em conversão.',
+    id: 'embalagem-produto-alimenticio',
+    title: 'Design de Embalagem - Produtos Alimentícios',
+    category: 'Designer de Embalagem',
+    description: 'Criação de embalagens atrativas para linha de produtos alimentícios, com foco em shelf appeal.',
     thumbnail: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop',
     images: [
       'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop',
       'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=800&h=600&fit=crop',
     ],
     type: 'image',
     date: '2024-01'
   },
 
-  // Vídeos Curtos e Motion Design
+  {
+    id: 'embalagem-cosmeticos',
+    title: 'Embalagens Premium - Cosméticos',
+    category: 'Designer de Embalagem',
+    description: 'Design sofisticado de embalagens para linha premium de cosméticos, com acabamento especial.',
+    thumbnail: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&h=300&fit=crop',
+    images: [
+      'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&h=600&fit=crop',
+    ],
+    type: 'image',
+    date: '2023-10'
+  },
+
+  // Vídeos Promocionais | Motion Design
   {
     id: 'videos-promocionais',
     title: 'Vídeos Promocionais - Motion Design',
-    category: 'Vídeos Curtos e Motion Design',
+    category: 'Vídeos Promocionais | Motion Design',
     description: 'Vídeos animados para redes sociais, promovendo combos especiais, promoções e novos produtos.',
     thumbnail: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&h=300&fit=crop',
     images: [
@@ -111,27 +121,28 @@ export const portfolioProjects: Project[] = [
     date: '2023-11'
   },
 
-  // Automação com IA
   {
-    id: 'automacao-ia-vendas',
-    title: 'Automação com IA para Vendas',
-    category: 'Automação com IA para Atendimento e Vendas',
-    description: 'Soluções de automação inteligente para atendimento, vendas e agendamentos via WhatsApp.',
-    thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=300&fit=crop',
+    id: 'motion-design-corporativo',
+    title: 'Animações Corporativas',
+    category: 'Vídeos Promocionais | Motion Design',
+    description: 'Criação de animações institucionais e apresentações corporativas com motion graphics avançados.',
+    thumbnail: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop',
     images: [
-      'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
     ],
-    type: 'image',
+    videos: [
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+    ],
+    type: 'video',
     date: '2024-02'
   },
 
-  // Web sites e Landing Pages
+  // Web Sites | Landing Page
   {
     id: 'website-anderson-moveis',
     title: 'Website Anderson Móveis',
-    category: 'Web sites e Landing Pages',
-    description: 'Website institucional responsivo para loja de móveis planejados.',
+    category: 'Web Sites | Landing Page',
+    description: 'Website institucional responsivo para loja de móveis planejados com sistema de orçamento online.',
     thumbnail: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop',
     images: [
       'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
@@ -142,10 +153,10 @@ export const portfolioProjects: Project[] = [
   },
 
   {
-    id: 'website-manipularis',
-    title: 'Website Manipularis',
-    category: 'Web sites e Landing Pages', 
-    description: 'Website institucional responsivo para farmácia de manipulação.',
+    id: 'landing-page-manipularis',
+    title: 'Landing Page Manipularis',
+    category: 'Web Sites | Landing Page', 
+    description: 'Landing page otimizada para conversão da farmácia de manipulação com formulário de contato.',
     thumbnail: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=500&h=300&fit=crop',
     images: [
       'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop',
@@ -155,28 +166,42 @@ export const portfolioProjects: Project[] = [
     link: 'https://www.manipularis.com.br'
   },
 
+  // Criação com IA
   {
-    id: 'website-grupodrop',
-    title: 'Website Grupo Drop',
-    category: 'Web sites e Landing Pages',
-    description: 'Plataforma web completa para grupo empresarial.',
-    thumbnail: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop',
+    id: 'criacao-ia-chatbot',
+    title: 'Chatbot Inteligente para Vendas',
+    category: 'Criação com IA',
+    description: 'Desenvolvimento de chatbot com IA para atendimento automatizado e qualificação de leads via WhatsApp.',
+    thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=300&fit=crop',
     images: [
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop',
     ],
     type: 'image',
-    date: '2023-08',
-    link: 'https://www.grupodrop.com.br'
+    date: '2024-02'
+  },
+
+  {
+    id: 'criacao-ia-gerador-conteudo',
+    title: 'Sistema de Geração de Conteúdo',
+    category: 'Criação com IA',
+    description: 'Ferramenta de IA para geração automática de posts para redes sociais com personalização de marca.',
+    thumbnail: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500&h=300&fit=crop',
+    images: [
+      'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+    ],
+    type: 'image',
+    date: '2024-03'
   }
 ];
 
 export const categories = [
   'Todos',
-  'Designer Gráfico',
-  'Branding e Identidade Visual',
-  'Criação de Conteúdo para Redes Sociais',
-  'Criativos para Gestão de Tráfego Pago',
-  'Vídeos Curtos e Motion Design',
-  'Automação com IA para Atendimento e Vendas',
-  'Web sites e Landing Pages'
+  'Criação de identidade Visual',
+  'Social Media',
+  'Designer de Embalagem',
+  'Vídeos Promocionais | Motion Design',
+  'Web Sites | Landing Page',
+  'Criação com IA'
 ];
