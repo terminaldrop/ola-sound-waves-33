@@ -111,13 +111,21 @@
   
   .masonry-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  @media (min-width: 480px) {
+    .masonry-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
   }
   
   @media (min-width: 640px) {
     .masonry-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
     }
   }
   
@@ -133,6 +141,33 @@
     }
   }
   
+  /* Mobile-first utilities */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  /* Line clamp utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  
   .masonry-item {
     display: flex;
     flex-direction: column;
@@ -140,11 +175,32 @@
   }
   
   .project-card {
-    @apply relative overflow-hidden rounded-lg bg-card transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl;
+    @apply relative overflow-hidden rounded-lg bg-card transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl touch-manipulation;
     box-shadow: 0 10px 40px -10px hsl(var(--primary) / 0.1);
   }
   
   .project-card:hover {
     box-shadow: 0 20px 60px -10px hsl(var(--primary) / 0.3);
+  }
+  
+  /* Hide scrollbar for category filters */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Mobile improvements */
+  @media (max-width: 640px) {
+    .masonry-grid {
+      padding: 0;
+    }
+    
+    .project-card {
+      margin-bottom: 0.5rem;
+    }
   }
 }

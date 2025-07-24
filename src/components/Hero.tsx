@@ -35,9 +35,9 @@ const Hero = () => {
           />
         </div>
 
-        {/* Main headline */}
-        <div className="space-y-4">
-          <h1 className="text-5xl md:text-7xl font-bold font-sora leading-tight">
+        {/* Main headline - Mobile optimized */}
+        <div className="space-y-4 px-4 sm:px-0">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold font-sora leading-tight">
             <span className="text-white">Design que</span>
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent block">
               Transforma
@@ -45,48 +45,48 @@ const Hero = () => {
             <span className="text-gray-300">Marcas</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Agência de Inteligência Artificial especializada em design, automação e marketing digital.
             <span className="text-foreground font-medium"> Transformamos sua presença digital com IA.</span>
           </p>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+        {/* CTA Buttons - Mobile optimized */}
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-6 sm:pt-8 px-4 sm:px-0">
           <Button
             size="lg"
-            className="group relative overflow-hidden bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white px-8 py-6 text-lg font-semibold rounded-full shadow-2xl shadow-pink-500/50 transition-all duration-300 hover:scale-105 border-2 border-white/20"
+            className="group relative overflow-hidden bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-full shadow-2xl shadow-pink-500/50 transition-all duration-300 hover:scale-105 border-2 border-white/20 w-full sm:w-auto touch-manipulation"
             onClick={handleWhatsAppContact}
           >
-            <MessageCircle className="mr-2 h-5 w-5" />
+            <MessageCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
             Contratar Agência
-            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
           </Button>
           
           <Button
             variant="outline"
             size="lg"
-            className="group border-2 border-primary/80 text-primary hover:bg-primary hover:text-white px-8 py-6 text-lg rounded-full backdrop-blur-sm bg-card/50 font-semibold transition-all duration-300 hover:scale-105"
+            className="group border-2 border-primary/80 text-primary hover:bg-primary hover:text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg rounded-full backdrop-blur-sm bg-card/50 font-semibold transition-all duration-300 hover:scale-105 w-full sm:w-auto touch-manipulation"
             onClick={handleEmailContact}
           >
-            <Mail className="mr-2 h-5 w-5" />
+            <Mail className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
             Enviar E-mail
           </Button>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-8 pt-16 max-w-md mx-auto">
+        {/* Stats - Mobile optimized */}
+        <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-12 sm:pt-16 max-w-xs sm:max-w-md mx-auto px-4 sm:px-0">
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold gradient-text">1.200+</div>
-            <div className="text-sm text-muted-foreground">Projetos</div>
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text">1.200+</div>
+            <div className="text-xs sm:text-sm text-muted-foreground">Projetos</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold gradient-text">450+</div>
-            <div className="text-sm text-muted-foreground">Clientes</div>
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text">450+</div>
+            <div className="text-xs sm:text-sm text-muted-foreground">Clientes</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold gradient-text">12+</div>
-            <div className="text-sm text-muted-foreground">Anos</div>
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text">12+</div>
+            <div className="text-xs sm:text-sm text-muted-foreground">Anos</div>
           </div>
         </div>
 

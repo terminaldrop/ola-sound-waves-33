@@ -66,42 +66,44 @@ const ProjectsGrid = () => {
           </p>
         </div>
 
-        {/* Filters */}
-        <div className="mb-12 space-y-6">
+        {/* Filters - Mobile Optimized */}
+        <div className="mb-8 sm:mb-12 space-y-4 sm:space-y-6">
           {/* Search */}
-          <div className="relative max-w-md mx-auto">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <div className="relative max-w-sm sm:max-w-md mx-auto px-4 sm:px-0">
+            <Search className="absolute left-6 sm:left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Buscar projetos..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 bg-card/50 backdrop-blur-sm border-primary/20 focus:border-primary/50 rounded-full"
+              className="pl-12 sm:pl-10 bg-card/50 backdrop-blur-sm border-primary/20 focus:border-primary/50 rounded-full text-sm sm:text-base h-10 sm:h-12"
             />
           </div>
 
-          {/* Category filters */}
-          <div className="flex flex-wrap justify-center gap-2">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedCategory(category)}
-                className={`transition-all duration-300 rounded-full ${
-                  selectedCategory === category 
-                    ? "bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white hover:from-orange-600 hover:via-red-600 hover:to-pink-600 shadow-lg shadow-pink-500/25" 
-                    : "border-primary/30 text-primary hover:bg-[#4A1A5C]/80 hover:border-primary/50 bg-[#4A1A5C]/60 backdrop-blur-sm"
-                }`}
-              >
-                {category}
-              </Button>
-            ))}
+          {/* Category filters - Horizontal scroll on mobile */}
+          <div className="px-4 sm:px-0">
+            <div className="flex sm:flex-wrap sm:justify-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-hide">
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  variant={selectedCategory === category ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setSelectedCategory(category)}
+                  className={`transition-all duration-300 rounded-full whitespace-nowrap text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 touch-manipulation ${
+                    selectedCategory === category 
+                      ? "bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white hover:from-orange-600 hover:via-red-600 hover:to-pink-600 shadow-lg shadow-pink-500/25" 
+                      : "border-primary/30 text-primary hover:bg-[#4A1A5C]/80 hover:border-primary/50 bg-[#4A1A5C]/60 backdrop-blur-sm"
+                  }`}
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Results info */}
-        <div className="mb-8 text-center">
-          <p className="text-muted-foreground">
+        <div className="mb-6 sm:mb-8 text-center px-4 sm:px-0">
+          <p className="text-sm sm:text-base text-muted-foreground">
             {filteredProjects.length === 0 ? (
               "Nenhum projeto encontrado"
             ) : (
@@ -110,35 +112,39 @@ const ProjectsGrid = () => {
           </p>
         </div>
 
-        {/* Projects grid */}
-        {filteredProjects.length > 0 ? (
-          <div className="masonry-grid">
-            {filteredProjects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                onView={handleViewProject}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-20">
-            <Filter className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Nenhum projeto encontrado</h3>
-            <p className="text-muted-foreground mb-6">
-              Tente ajustar os filtros ou buscar por outros termos.
-            </p>
-            <Button
-              variant="outline"
-              onClick={() => {
-                setSearchTerm("");
-                setSelectedCategory("Todos");
-              }}
-            >
-              Limpar Filtros
-            </Button>
-          </div>
-        )}
+        {/* Projects grid - Mobile optimized */}
+        <div className="px-4 sm:px-0">
+          {filteredProjects.length > 0 ? (
+            <div className="masonry-grid">
+              {filteredProjects.map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  onView={handleViewProject}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12 sm:py-20">
+              <Filter className="h-10 w-10 sm:h-12 sm:w-12 text-muted-foreground mx-auto mb-3 sm:mb-4" />
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">Nenhum projeto encontrado</h3>
+              <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 max-w-sm mx-auto">
+                Tente ajustar os filtros ou buscar por outros termos.
+              </p>
+              <Button
+                variant="outline"
+                size="sm"
+                className="touch-manipulation"
+                onClick={() => {
+                  setSearchTerm("");
+                  setSelectedCategory("Todos");
+                }}
+              >
+                Limpar Filtros
+              </Button>
+            </div>
+          )}
+        </div>
 
         {/* Project Modal */}
         <ProjectModal
