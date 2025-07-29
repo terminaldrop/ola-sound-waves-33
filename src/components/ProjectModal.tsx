@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { X, ChevronLeft, ChevronRight, Play, Pause, MessageCircle, ExternalLink } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Play, Pause, MessageCircle, ExternalLink, Eye } from "lucide-react";
 import { Project } from "@/data/portfolio";
 
 interface ProjectModalProps {
@@ -68,98 +68,96 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
 
           {/* Content - Responsive Layout */}
           <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
-            {/* Media viewer - Full width on mobile */}
-            <div className="flex-1 relative bg-black/5 flex items-center justify-center min-h-[300px] lg:min-h-0">
-              {currentMedia?.type === 'image' ? (
-                <img
-                  src={currentMedia.url}
-                  alt={`${project.title} - ${currentIndex + 1}`}
-                  className="max-w-full max-h-full object-contain"
-                />
+            {/* Media Grid - Behance Style */}
+            <div className="flex-1 bg-card/30 backdrop-blur-sm p-4 overflow-y-auto">
+              {allMedia.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[200px]">
+                  {allMedia.map((media, index) => {
+                    // Create varied layouts like Behance
+                    const isLarge = index % 5 === 0; // Every 5th item is large
+                    const isWide = index % 7 === 0; // Every 7th item is wide
+                    const isTall = index % 6 === 0; // Every 6th item is tall
+                    
+                    let gridClass = "";
+                    if (isLarge && allMedia.length > 1) {
+                      gridClass = "md:col-span-2 md:row-span-2";
+                    } else if (isWide && allMedia.length > 2) {
+                      gridClass = "md:col-span-2";
+                    } else if (isTall && allMedia.length > 3) {
+                      gridClass = "md:row-span-2";
+                    }
+
+                    return (
+                      <div
+                        key={index}
+                        className={`relative group cursor-pointer overflow-hidden rounded-lg bg-black/10 hover:bg-black/20 transition-all duration-300 border border-border/50 hover:border-primary/30 ${gridClass}`}
+                      >
+                        {media.type === 'video' ? (
+                          <div className="relative w-full h-full">
+                            <video
+                              src={media.url}
+                              className="w-full h-full object-cover"
+                              muted
+                              onMouseEnter={(e) => e.currentTarget.play()}
+                              onMouseLeave={(e) => e.currentTarget.pause()}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 group-hover:from-black/40 transition-all duration-300" />
+                            <div className="absolute top-3 right-3 bg-black/70 text-white p-1.5 rounded-full backdrop-blur-sm">
+                              <Play className="h-4 w-4" />
+                            </div>
+                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              <div className="bg-white/90 text-black p-4 rounded-full">
+                                <Play className="h-8 w-8" />
+                              </div>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="relative w-full h-full">
+                            <img
+                              src={media.url}
+                              alt={`${project.title} - imagem ${index + 1}`}
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300" />
+                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              <div className="bg-white/90 text-black p-3 rounded-full backdrop-blur-sm">
+                                <Eye className="h-6 w-6" />
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                        
+                        {/* Media info overlay */}
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                          <div className="text-white">
+                            <p className="text-sm font-medium mb-1">
+                              {media.type === 'video' ? 'Vídeo' : 'Imagem'} {index + 1}
+                            </p>
+                            <p className="text-xs text-white/70">
+                              {media.type === 'video' ? 'Clique para reproduzir' : 'Clique para visualizar'}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               ) : (
-                <div className="relative">
-                  <video
-                    src={currentMedia?.url}
-                    className="max-w-full max-h-full object-contain"
-                    controls={isVideoPlaying}
-                    autoPlay={isVideoPlaying}
-                    onPlay={() => setIsVideoPlaying(true)}
-                    onPause={() => setIsVideoPlaying(false)}
-                  />
-                  {!isVideoPlaying && (
-                    <Button
-                      size="lg"
-                      className="absolute inset-0 m-auto w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/90 text-black hover:bg-white"
-                      onClick={() => setIsVideoPlaying(true)}
-                    >
-                      <Play className="h-4 w-4 sm:h-6 sm:w-6 ml-1" />
-                    </Button>
-                  )}
+                <div className="h-full flex items-center justify-center">
+                  <p className="text-muted-foreground">Nenhuma mídia disponível</p>
                 </div>
               )}
-
-              {/* Navigation buttons - Touch friendly */}
-              {allMedia.length > 1 && (
-                <>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white hover:bg-black/70 h-10 w-10 sm:h-12 sm:w-12"
-                    onClick={goToPrevious}
-                  >
-                    <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white hover:bg-black/70 h-10 w-10 sm:h-12 sm:w-12"
-                    onClick={goToNext}
-                  >
-                    <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
-                  </Button>
-                </>
-              )}
-
-              {/* Counter */}
-              <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">
-                {currentIndex + 1} / {allMedia.length}
-              </div>
             </div>
 
             {/* Sidebar - Becomes bottom section on mobile */}
             <div className="w-full lg:w-80 border-t lg:border-t-0 lg:border-l bg-card/50 p-3 sm:p-6 space-y-4 sm:space-y-6 overflow-y-auto">
-              {/* Thumbnails - Show first on mobile for easy access */}
-              {allMedia.length > 1 && (
-                <div className="space-y-3 lg:order-last">
-                  <h4 className="font-semibold text-sm">Galeria ({allMedia.length})</h4>
-                  <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-3 gap-2">
-                    {allMedia.map((media, index) => (
-                      <button
-                        key={index}
-                        className={`relative aspect-square rounded overflow-hidden border-2 transition-all touch-manipulation ${
-                          index === currentIndex ? 'border-primary' : 'border-transparent'
-                        }`}
-                        onClick={() => {
-                          setCurrentIndex(index);
-                          setIsVideoPlaying(false);
-                        }}
-                      >
-                        {media.type === 'image' ? (
-                          <img
-                            src={media.url}
-                            alt={`Thumbnail ${index + 1}`}
-                            className="w-full h-full object-cover"
-                          />
-                        ) : (
-                          <div className="w-full h-full bg-black/10 flex items-center justify-center">
-                            <Play className="h-3 w-3 sm:h-4 sm:w-4 text-muted-foreground" />
-                          </div>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
+              {/* Media summary */}
+              <div className="space-y-3">
+                <h4 className="font-semibold text-sm">Galeria ({allMedia.length} itens)</h4>
+                <p className="text-xs text-muted-foreground">
+                  Grid inspirado no Behance com layouts variados
+                </p>
+              </div>
 
               {/* Project info - Compact on mobile */}
               <div className="space-y-3 sm:space-y-4">
