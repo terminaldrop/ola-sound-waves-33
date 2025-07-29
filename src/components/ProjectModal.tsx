@@ -68,46 +68,62 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
 
           {/* Content - Responsive Layout */}
           <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
-            {/* Media Grid - Behance Style */}
-            <div className="flex-1 bg-card/30 backdrop-blur-sm p-4 overflow-y-auto">
+            {/* Media Grid - Instagram/Behance Responsive Style */}
+            <div className="flex-1 bg-card/30 backdrop-blur-sm p-2 sm:p-4 overflow-y-auto">
               {allMedia.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[200px]">
+                <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-2 sm:gap-3 space-y-2 sm:space-y-3">
                   {allMedia.map((media, index) => {
-                    // Create varied layouts like Behance
-                    const isLarge = index % 5 === 0; // Every 5th item is large
-                    const isWide = index % 7 === 0; // Every 7th item is wide
-                    const isTall = index % 6 === 0; // Every 6th item is tall
+                    // Create varied layouts inspired by Instagram/Behance
+                    const patterns = [
+                      'square', 'vertical', 'horizontal', 'square', 'vertical',
+                      'horizontal', 'square', 'tall', 'wide', 'square',
+                      'vertical', 'square', 'horizontal', 'square', 'vertical'
+                    ];
+                    const pattern = patterns[index % patterns.length];
                     
-                    let gridClass = "";
-                    if (isLarge && allMedia.length > 1) {
-                      gridClass = "md:col-span-2 md:row-span-2";
-                    } else if (isWide && allMedia.length > 2) {
-                      gridClass = "md:col-span-2";
-                    } else if (isTall && allMedia.length > 3) {
-                      gridClass = "md:row-span-2";
+                    // Define aspect ratios for different layouts
+                    let aspectClass = "";
+                    switch (pattern) {
+                      case 'square':
+                        aspectClass = "aspect-square";
+                        break;
+                      case 'vertical':
+                        aspectClass = "aspect-[3/4]";
+                        break;
+                      case 'horizontal':
+                        aspectClass = "aspect-[4/3]";
+                        break;
+                      case 'tall':
+                        aspectClass = "aspect-[2/3]";
+                        break;
+                      case 'wide':
+                        aspectClass = "aspect-[16/9]";
+                        break;
+                      default:
+                        aspectClass = "aspect-square";
                     }
 
                     return (
                       <div
                         key={index}
-                        className={`relative group cursor-pointer overflow-hidden rounded-lg bg-black/10 hover:bg-black/20 transition-all duration-300 border border-border/50 hover:border-primary/30 ${gridClass}`}
+                        className={`relative group cursor-pointer overflow-hidden rounded-lg bg-black/10 hover:bg-black/20 transition-all duration-300 border border-border/50 hover:border-primary/30 break-inside-avoid mb-2 sm:mb-3 ${aspectClass}`}
                       >
                         {media.type === 'video' ? (
                           <div className="relative w-full h-full">
                             <video
                               src={media.url}
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-cover object-center"
                               muted
                               onMouseEnter={(e) => e.currentTarget.play()}
                               onMouseLeave={(e) => e.currentTarget.pause()}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 group-hover:from-black/40 transition-all duration-300" />
-                            <div className="absolute top-3 right-3 bg-black/70 text-white p-1.5 rounded-full backdrop-blur-sm">
-                              <Play className="h-4 w-4" />
+                            <div className="absolute top-2 right-2 bg-black/70 text-white p-1 sm:p-1.5 rounded-full backdrop-blur-sm">
+                              <Play className="h-3 w-3 sm:h-4 sm:w-4" />
                             </div>
                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                              <div className="bg-white/90 text-black p-4 rounded-full">
-                                <Play className="h-8 w-8" />
+                              <div className="bg-white/90 text-black p-2 sm:p-3 rounded-full">
+                                <Play className="h-4 w-4 sm:h-6 sm:w-6" />
                               </div>
                             </div>
                           </div>
@@ -116,24 +132,25 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                             <img
                               src={media.url}
                               alt={`${project.title} - imagem ${index + 1}`}
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                              className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                              loading="lazy"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent group-hover:from-black/20 transition-all duration-300" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent group-hover:from-black/10 transition-all duration-300" />
                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                              <div className="bg-white/90 text-black p-3 rounded-full backdrop-blur-sm">
-                                <Eye className="h-6 w-6" />
+                              <div className="bg-white/90 text-black p-2 sm:p-3 rounded-full backdrop-blur-sm">
+                                <Eye className="h-4 w-4 sm:h-5 sm:w-5" />
                               </div>
                             </div>
                           </div>
                         )}
                         
-                        {/* Media info overlay */}
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        {/* Media info overlay - Mobile optimized */}
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-2 sm:p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                           <div className="text-white">
-                            <p className="text-sm font-medium mb-1">
+                            <p className="text-xs sm:text-sm font-medium mb-0.5 sm:mb-1">
                               {media.type === 'video' ? 'Vídeo' : 'Imagem'} {index + 1}
                             </p>
-                            <p className="text-xs text-white/70">
+                            <p className="text-xs text-white/70 hidden sm:block">
                               {media.type === 'video' ? 'Clique para reproduzir' : 'Clique para visualizar'}
                             </p>
                           </div>
