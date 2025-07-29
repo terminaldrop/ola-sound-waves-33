@@ -14,6 +14,36 @@ export interface Project {
 }
 
 export const portfolioProjects: Project[] = [
+  // Exemplos de logos/marcas - Para testar grid
+  {
+    id: 'logo-ponto48-antes-depois',
+    title: 'Ponto 48 - Redesign Logo',
+    category: 'Identidade Visual',
+    description: 'Redesign completo da identidade visual do Ponto 48 Lanches, modernizando o conceito e mantendo a essência da marca.',
+    thumbnail: '/lovable-uploads/75f3bb4f-669d-4eb5-be75-c6766e198ddb.png',
+    images: [
+      '/lovable-uploads/75f3bb4f-669d-4eb5-be75-c6766e198ddb.png',
+      '/lovable-uploads/d10b8609-c041-42b4-974a-a2ffd3c6cb73.png',
+      '/lovable-uploads/4ce33ac0-64b4-486f-a3ad-53eedfe22104.png',
+    ],
+    type: 'image',
+    date: '2024-01'
+  },
+
+  {
+    id: 'logo-borges-antes-depois',
+    title: 'Expresso Borges - Nova Identidade',
+    category: 'Identidade Visual',
+    description: 'Criação de nova identidade visual para Expresso Borges, com conceito moderno e elegante.',
+    thumbnail: '/lovable-uploads/da3e6a53-6bcd-488f-b43e-412730cc4815.png',
+    images: [
+      '/lovable-uploads/da3e6a53-6bcd-488f-b43e-412730cc4815.png',
+      '/lovable-uploads/4b078333-36e8-4218-a531-e256ab9f1345.png',
+    ],
+    type: 'image',
+    date: '2024-02'
+  },
+
   // Identidade Visual
   {
     id: 'identidade-visual-restaurante',
