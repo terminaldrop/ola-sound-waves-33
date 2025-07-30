@@ -4,8 +4,7 @@ import { ArrowRight, Mail, MessageCircle } from "lucide-react";
 
 const Hero = () => {
   const handleWhatsAppContact = () => {
-    const message = "Olá! Gostaria de solicitar um orçamento para meu projeto de design.";
-    const whatsappUrl = `https://wa.me/5551999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = "https://api.whatsapp.com/send?phone=555130823083&text=Ol%C3%A1%20Grupo%20Drop.%20Preciso%20de%20Informa%C3%A7%C3%B5es%20Sobre%20Seus%20Servi%C3%A7os.";
     window.open(whatsappUrl, '_blank');
   };
 
